@@ -18,7 +18,7 @@ namespace Puregold.API.Services
 
         public async Task<bool> IsAccessKeyValid(Guid accessKey)
         {
-            var client = await _db.Clients.FindAsync(accessKey);
+            var client = await _db.Clients.Where(data => data.AccessKey == accessKey).FirstAsync();
 
             if (client == null)
                 return false;

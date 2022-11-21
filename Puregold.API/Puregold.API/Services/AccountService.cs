@@ -89,7 +89,7 @@ namespace Puregold.API.Services
 
         private async Task UpdateAccount(Account account)
         {
-            var currentAccount = await _db.Accounts.FindAsync(account.InternalID);
+            var currentAccount = await _db.Accounts.FindAsync(account.InternalID, account.AccountID);
 
             if (currentAccount == null)
                 throw new ServiceException(Constants.ERROR_ACCOUNT_NOT_EXIST);
