@@ -18,12 +18,12 @@ namespace Puregold.API.Services
 
         public async Task<bool> IsAccessKeyValid(Guid accessKey)
         {
-            var client = await _db.Clients.Where(data => data.AccessKey == accessKey).FirstAsync();
+            var client = await _db.Clients.Where(data => data.AccessKey == accessKey).ToListAsync();
 
-            if (client == null)
+            if (client == null || client.Count == 0)
                 return false;
 
-            return client.IsValid;
+            return client.First().IsValid;
         }
     }
 }
