@@ -10,6 +10,7 @@ var connectionString = builder.Configuration.GetConnectionString("DEV_SQL_CON");
 builder.Services.AddDbContext<PuregoldDbContext>(options => options.UseSqlServer(connectionString));
 
 builder.Services.AddScoped<IAccountService, AccountService>();
+builder.Services.AddScoped<IUtilityService, UtilityService>();
 
 builder.Services.AddCors(options =>
 {
