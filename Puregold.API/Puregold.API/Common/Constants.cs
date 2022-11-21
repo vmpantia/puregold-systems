@@ -14,5 +14,9 @@
         public const string ERROR_LOGIN_REQUEST_NULL = "Login Request must have value.";
         public const string ERROR_LOGIN_REQUEST_ACCOUNT_NOT_EXIST = "Account doesn't Exist in the System.";
         public const string ERROR_LOGIN_REQUEST_INCORRECT_PASSWORD = "Incorrect Password, Please try again.";
+
+
+        public const string ERROR_ACCOUNT_REQUEST_NULL = "Account Request must have value.";
+        public const string ERROR_ACCOUNT_NOT_EXIST = "Account doesn't Exist in the System.";
     }
 }
