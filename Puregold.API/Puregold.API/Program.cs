@@ -1,11 +1,26 @@
 using Microsoft.EntityFrameworkCore;
+using Puregold.API.Contractors;
 using Puregold.API.DataAccess;
+using Puregold.API.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DEV_SQL_CON");
 builder.Services.AddDbContext<PuregoldDbContext>(options => options.UseSqlServer(connectionString));
+
+builder.Services.AddScoped<IUserService, UserService>();
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("Policy",
+                        policy =>
+                        {
+                            policy.WithOrigins("*")
+                                .AllowAnyHeader()
+                                .AllowAnyMethod();
+                        });
+});
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -22,6 +37,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors("Policy");
 
 app.UseAuthorization();
 

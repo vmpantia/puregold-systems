@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Puregold.API.DataAccess;
 
@@ -11,9 +12,11 @@ using Puregold.API.DataAccess;
 namespace Puregold.API.Migrations
 {
     [DbContext(typeof(PuregoldDbContext))]
-    partial class PuregoldDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221121033027_UpdateTable20221112_0")]
+    partial class UpdateTable202211120
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

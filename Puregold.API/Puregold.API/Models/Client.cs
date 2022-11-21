@@ -4,14 +4,12 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Puregold.API.Models
 {
-    [PrimaryKey(nameof(InternalID), nameof(Account_InternalID), nameof(AccessKey))]
+    [PrimaryKey(nameof(AccessKey), nameof(Account_InternalID))]
     public class Client
     {
-        public Guid InternalID { get; set; }
+        public Guid AccessKey { get; set; }
 
         public Guid Account_InternalID { get; set; }
-
-        public Guid AccessKey { get; set; }
 
         [Required, MaxLength(Constants.LENGTH_25)]
         public string IPAddress { get; set; }
